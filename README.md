@@ -1,25 +1,21 @@
 # A Node.js Altcoin Client!
 
-[![NPM](https://nodei.co/npm/node-altcoin.png?downloads=true&stars=true)](https://nodei.co/npm/node-altcoin/)
+
             
 [![Known Vulnerabilities](https://snyk.io/test/github/nrpatten/node-altcoin/badge.svg)](https://snyk.io/test/github/nrpatten/node-altcoin)
 
-node-altcoin is a altcoin client for Node.js. It is a fork of the excellent Kapitalize Bitcoin Client (now removed from GitHub) intended for use with most altcoins. The purpose of this repository is:
+node-agrisence is a altcoin client for Node.js. It is a fork of the excellent Kapitalize Bitcoin Client (now removed from GitHub) intended for use with the AgriSence Scrypt Blockchain. The purpose of this repository is:
 
-* Provide a one-stop resource for the Node.js developer to get started with altcoin integration.
-* Promote Node.js development of altcoin web apps.
-* Identify and address any incompatibilities with the altcoins and Bitcoin APIs that exist now and/or in the future.
+* Provide a one-stop resource for the Node.js developer to get started with AgriSence integration.
+* Promote Node.js development of AgriSence web apps.
+* Identify and address any incompatibilities with the AgriSence APIs that exist now and/or in the future.
 
 ## Dependencies
 
-You'll need a running instance of a [litecoind](https://github.com/litecoin-project/litecoin) to connect with. 
+You'll need a running instance of a AgriSenced
+Then, install the node-agrisence NPM package.
 
-Then, install the node-altcoin NPM package.
-
-`npm install node-altcoin`
-
-or
-
+`
 `npm install git://github.com/nrpatten/node-altcoin/`
 
 ## Examples
@@ -27,7 +23,7 @@ or
 Some code examples follow below.
 
 ```js
-var altcoin = require('node-altcoin')()
+var agrisence = require('node-agrisence')()
 
 altcoin.auth('myusername', 'mypassword')
 
@@ -42,9 +38,9 @@ altcoin.getDifficulty(function() {
 Pretty much everything is chainable.
 
 ```js
-var altcoin = require('node-altcoin')()
+var agrisence = require('node-agrisence')()
 
-altcoin
+agrisence
 .auth('MyUserName', 'mypassword')
 .getNewAddress()
 .getBalance()
@@ -52,10 +48,10 @@ altcoin
 
 ## Methods
 
-The [Litecoin API](https://litecoin.info/Litecoin_API) is supported as direct methods. Use either camelcase or lowercase.
+The [AgriSence API] is supported as direct methods. Use either camelcase or lowercase.
 
 ```js
-altcoin.getNewAddress(function(err, address) {
+agrisence.getNewAddress(function(err, address) {
     this.validateaddress(address, function(err, info) {
 
     })
@@ -67,9 +63,9 @@ Executes the given command with optional arguments. Function `callback` defaults
 All of the API commands are supported in lowercase or camelcase. Or uppercase. Anycase!
 
 ```js
-altcoin.exec('getNewAddress')
+agrisence.exec('getNewAddress')
 
-altcoin.exec('getbalance', function(err, balance) {
+agrisence.exec('getbalance', function(err, balance) {
 
 })
 ```
@@ -79,7 +75,7 @@ altcoin.exec('getbalance', function(err, balance) {
 Accepts either key & value strings or an Object containing settings, returns `this` for chainability.
 
 ```js
-altcoin.set('host', '127.0.0.1')
+agrisence.set('host', '127.0.0.1')
 ```
 
 ### .get(key [string])
@@ -87,7 +83,7 @@ altcoin.set('host', '127.0.0.1')
 Returns the specified option's value
 
 ```js
-altcoin.get('user')
+agrisence.get('user')
 ```
 
 ### .auth(user [string], pass [string])
@@ -96,7 +92,7 @@ Generates authorization header, returns `this` for chainability
 
 ## Commands
 
-All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, in lowercase or camelcase form.
+All [AgriSence API] commands are supported, in lowercase or camelcase form.
 
 <table>
 <tr>
@@ -119,7 +115,7 @@ All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, i
 </td></tr>
 <tr>
 <td> dumpprivkey </td>
-<td> [altcoinaddress] </td>
+<td> [agrisencecoinaddress] </td>
 <td> Reveals the private key corresponding to <altcoinaddress< </td>
 <td> Y
 </td></tr>
@@ -131,14 +127,14 @@ All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, i
 </td></tr>
 <tr>
 <td> getaccount </td>
-<td> [altcoinaddress] </td>
+<td> [agrisenceaddress] </td>
 <td> Returns the account associated with the given address. </td>
 <td> N
 </td></tr>
 <tr>
 <td> getaccountaddress </td>
 <td> [account] </td>
-<td> Returns the current altcoin address for receiving payments to this account. </td>
+<td> Returns the current agrisence address for receiving payments to this account. </td>
 <td> N
 </td></tr>
 <tr>
@@ -244,7 +240,7 @@ All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, i
 <tr>
 <td> getnewaddress </td>
 <td> [account] </td>
-<td> Returns a new altcoin address for receiving payments.  If [account] is specified (recommended), it is added to the address book so payments received with the address will be credited to [account]. </td>
+<td> Returns a new agrisencecoin address for receiving payments.  If [account] is specified (recommended), it is added to the address book so payments received with the address will be credited to [account]. </td>
 <td> N
 </td></tr>
 <tr>
@@ -255,7 +251,7 @@ All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, i
 </td></tr>
 <tr>
 <td> getreceivedbyaddress </td>
-<td> [altcoinaddress] [minconf=1] </td>
+<td> [agrisenceaddress] [minconf=1] </td>
 <td> Returns the total amount received by <altcoinaddress< in transactions with at least [minconf] confirmations. While some might consider this obvious, value reported by this only considers *receiving* transactions. It does not check payments that have been made *from* this address. In other words, this is not "getaddressbalance". Works only for addresses in the local wallet, external addresses will always show 0. </td>
 <td> N
 </td></tr>
@@ -299,7 +295,7 @@ All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, i
 </td></tr>
 <tr>
 <td> importprivkey </td>
-<td> [altcoinprivkey] [label] </td>
+<td> [agrisenceprivkey] [label] </td>
 <td> Adds a private key (as returned by dumpprivkey) to your wallet. </td>
 <td> Y
 </td></tr>
@@ -373,13 +369,13 @@ All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, i
 </td></tr>
 <tr>
 <td> sendtoaddress </td>
-<td> [altcoinaddress] [amount] [comment] [comment-to] </td>
+<td> [agrisenceaddress] [amount] [comment] [comment-to] </td>
 <td> <amount< is a real and is rounded to 8 decimal places. Returns the transaction ID <txid< if successful. </td>
 <td> Y
 </td></tr>
 <tr>
 <td> setaccount </td>
-<td> [altcoinaddress] [account] </td>
+<td> [agrisenceaddress] [account] </td>
 <td> Sets the account associated with the given address. Assigning address that is already assigned to the same account will create a new address associated with that account. </td>
 <td> N
 </td></tr>
@@ -393,7 +389,7 @@ Generation is limited to [genproclimit] processors, -1 is unlimited. </td>
 </td></tr>
 <tr>
 <td> signmessage </td>
-<td> [altcoinaddress] [message] </td>
+<td> [agrisenceaddress] [message] </td>
 <td> Sign a message with the private key of an address. </td>
 <td> Y
 </td></tr>
@@ -406,18 +402,18 @@ Generation is limited to [genproclimit] processors, -1 is unlimited. </td>
 <tr>
 <td> stop </td>
 <td> </td>
-<td> Stop altcoin server. </td>
+<td> Stop agrisence server. </td>
 <td> N
 </td></tr>
 <tr>
 <td> validateaddress </td>
-<td> [altcoinaddress] </td>
+<td> [agrisenceaddress] </td>
 <td> Return information about [altcoinaddress]. </td>
 <td> N
 </td></tr>
 <tr>
 <td> verifymessage </td>
-<td> [altcoinaddress] [signature] [message] </td>
+<td> [agrisenceaddress] [signature] [message] </td>
 <td> Verify a signed message. </td>
 <td> N
 </td></tr>
@@ -446,12 +442,12 @@ You may pass options to the initialization function or to the `set` method.
 
 ```js
 
-var altcoin = require('altcoin')({
+var agrisence = require('agrisence')({
     user:'user'
 })
 
-altcoin.set('pass', 'somn')
-altcoin.set({port:7142})
+agrisence.set('pass', 'somn')
+agrisence.set({port:7142})
 
 ```
 
@@ -480,7 +476,7 @@ You may pass an optional function `passphrasecallback` to the `node-altcoin` ini
 You may hard code your passphrase (not recommended) as follows:
 
 ```js
-var altcoin = require('node-altcoin')({
+var agrisence = require('node-agrisence')({
     passphrasecallback: function(command, args, callback) {
         callback(null, 'passphrase', 30);
     }
@@ -497,7 +493,7 @@ var rl = readline.createInterface({
   output: process.stdout
 })
 
-var altcoin = require('node-altcoin')({
+var agrisence = require('node-agrisence')({
   passphrasecallback: function(command, args, callback) {
     rl.question('Enter passphrase for "' + command + '" operation: ', function(passphrase) {
       if (passphrase) {
@@ -512,20 +508,20 @@ var altcoin = require('node-altcoin')({
 
 ### Secure RPC with SSL
 
-By default `altcoind` exposes its JSON-RPC interface via HTTP; that is, all RPC commands are transmitted in plain text across the network! To secure the JSON-RPC channel you can supply `altcoind` with a self-signed SSL certificate and an associated private key to enable HTTPS. For example, in your `altcoin.conf`:
+By default `agrisenced` exposes its JSON-RPC interface via HTTP; that is, all RPC commands are transmitted in plain text across the network! To secure the JSON-RPC channel you can supply `agrisenced` with a self-signed SSL certificate and an associated private key to enable HTTPS. For example, in your `agrisence.conf`:
 
     rpcssl=1
-    rpcsslcertificatechainfile=/etc/ssl/certs/altcoind.crt
-    rpcsslprivatekeyfile=/etc/ssl/private/altcoind.pem
+    rpcsslcertificatechainfile=/etc/ssl/certs/aagrisenced.crt
+    rpcsslprivatekeyfile=/etc/ssl/private/agrisence.pem
 
-In order to securely access an SSL encrypted JSON-RPC interface you need a copy of the self-signed certificate from the server: in this case `altcoind.crt`. Pass your self-signed certificate in the `ca` option and set `https: true` and node-altcoin is secured!
+In order to securely access an SSL encrypted JSON-RPC interface you need a copy of the self-signed certificate from the server: in this case `agrisence.crt`. Pass your self-signed certificate in the `ca` option and set `https: true` and node-altcoin is secured!
     
 ```js
 var fs = require('fs')
 
-var ca = fs.readFileSync('altcoind.crt')
+var ca = fs.readFileSync('agrisenced.crt')
 
-var altcoin = require('node-altcoin')({
+var altcoin = require('node-agrisence')({
   user: 'rpcusername',
   pass: 'rpcpassword',
   https: true,
