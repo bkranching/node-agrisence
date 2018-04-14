@@ -1,22 +1,22 @@
 {
-  "name": "node-altcoin",
+  "name": "node-agrisence",
   "version": "0.1.2",
-  "description": "AltCoin RPC Node Client",
+  "description": "AgriSence RPC Node Client",
   "main": "./altcoin.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/nrpatten/node-altcoin.git"
+    "url": "git://github.com/bkranching/node-agrisence.git"
   },
   "keywords": [
-    "altcoin"
+    "agrisence"
   ],
-  "author": "NRPatten",
+  "author": "BK Ranching International Ltd",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nrpatten/node-altcoin/issues"
+    "url": "https://github.com/bkranching/node-agrisence/issues"
   },
-  "homepage": "https://github.com/nrpatten/node-altcoin"
+  "homepage": "https://github.com/bkranching/node-agrisence"
 }
